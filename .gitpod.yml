@@ -2,7 +2,10 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: |
-      echo 'TODO: build project'
-    command: |
-      echo 'TODO: start app'
+  - command: 'echo Hello!'
+
+ports:
+# Because GitPod's auth proxy will only work through the browser, but Hasura needs 
+# to ping the server from the CLI, we need to make this port public.
+  - port: 5000
+    visibility: public
