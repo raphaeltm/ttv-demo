@@ -1,1 +1,1 @@
-FROM ephemerecreative/gitpod-workspace:v0.0.5
+FROM ephemerecreative/gitpod-workspace:v0.1.0
