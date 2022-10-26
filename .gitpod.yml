@@ -2,10 +2,17 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - command: 'echo Hello!'
+  - init: docker-compose build
+    command: docker-compose up -d
+  - init: (cd server && yarn install)
+    command: (cd server && yarn start:dev)
+  - init: (cd web && yarn install)
+    command: (cd web && yarn dev)
 
 ports:
 # Because GitPod's auth proxy will only work through the browser, but Hasura needs 
 # to ping the server from the CLI, we need to make this port public.
   - port: 5000
+    visibility: public
+  - port: 3001
     visibility: public
